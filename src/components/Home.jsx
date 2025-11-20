@@ -10,10 +10,10 @@ const Home = () => {
         bg-[url('https://assets.ccbp.in/frontend/react-js/home-sm-bg.png')] 
         lg:bg-[url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png')] px-15 py-20"
     >
-      <h1 className="text-white text-5xl leading-relaxed font-semibold">
+      <h1 className="text-white text-3xl lg:text-5xl leading-relaxed font-semibold">
         Find The Job That Fits <br /> Your Life
       </h1>
-      <p className="text-white text-2xl mb-8 mt-5 font-extralight">
+      <p className="text-white text-md lg:text-xl mb-8 mt-5 font-extralight">
         Millions of people are searching for jobs,salary <br />
         information, company reviews. Find the jobs that <br /> fits your
         ability and potential
