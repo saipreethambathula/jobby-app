@@ -143,8 +143,7 @@ const JobProfileSection = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 p-4 h-[calc(100vh-160px)]">
-      {/* Filters */}
+    <div className="flex flex-col lg:flex-row gap-6 p-4 h-[calc(100vh-80px)]">
       <div className="w-full lg:w-1/4 shrink-0 overflow-auto">
         <JobsFilterGroup
           employmentTypesList={employmentTypesList}
@@ -154,9 +153,7 @@ const JobProfileSection = () => {
         />
       </div>
 
-      {/* Jobs list */}
       <div className="flex-1 flex flex-col">
-        {/* Sticky Search Bar */}
         <div className="sticky top-0 bg-[#202020] z-10 flex items-center w-full border border-gray-600 rounded-md px-4 py-2 mb-4">
           <input
             type="search"

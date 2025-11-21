@@ -11,7 +11,7 @@ export default function Header() {
   };
 
   return (
-    <nav className="w-full flex items-center justify-between bg-[#202020] px-6 py-4 shadow-lg">
+    <nav className="w-full flex items-center justify-between bg-[#202020] px-6 py-4 shadow-lg h-20">
       <Link to="/" className="flex items-center">
         <img
           src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
