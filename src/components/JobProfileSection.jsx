@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Loader, Search } from "lucide-react";
 import JobCard from "./JobCard";
-import JobsFilterGroup from "./JobFIterGroup.jsx";
+import JobsFilterGroup from "./JobFilterGroup";
 
 const employmentTypesList = [
   { label: "Full Time", employmentTypeId: "FULLTIME" },
@@ -29,7 +29,7 @@ const JobProfileSection = () => {
   const [jobsList, setJobsList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [employmentType, setEmploymentType] = useState([]);
-  const [salaryRange, setSalaryRange] = useState(0);
+  const [salaryRange, setSalaryRange] = useState("");
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial);
 
   useEffect(() => {

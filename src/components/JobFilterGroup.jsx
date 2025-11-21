@@ -1,21 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProfileDetails from "./ProfileDetails";
 
-const employmentTypesList = [
-  { label: "Full Time", employmentTypeId: "FULLTIME" },
-  { label: "Part Time", employmentTypeId: "PARTTIME" },
-  { label: "Freelance", employmentTypeId: "FREELANCE" },
-  { label: "Internship", employmentTypeId: "INTERNSHIP" },
-];
-
-const salaryRangesList = [
-  { salaryRangeId: "1000000", label: "10 LPA and above" },
-  { salaryRangeId: "2000000", label: "20 LPA and above" },
-  { salaryRangeId: "3000000", label: "30 LPA and above" },
-  { salaryRangeId: "4000000", label: "40 LPA and above" },
-];
-
-const JobsFilterGroup = ({ onEmploymentChange, onSalaryChange }) => {
+const JobsFilterGroup = ({
+  employmentTypesList,
+  salaryRangesList,
+  changeEmploymentType,
+  changeSalaryRange,
+}) => {
   const [filters, setFilters] = useState({
     employmentTypes: [],
     salaryRange: "",
@@ -26,18 +17,26 @@ const JobsFilterGroup = ({ onEmploymentChange, onSalaryChange }) => {
       const updated = prev.employmentTypes.includes(value)
         ? prev.employmentTypes.filter((item) => item !== value)
         : [...prev.employmentTypes, value];
-
-      if (onEmploymentChange) onEmploymentChange(updated);
       return { ...prev, employmentTypes: updated };
     });
   };
 
   const handleSalaryRangeChange = (value) => {
-    setFilters((prev) => {
-      if (onSalaryChange) onSalaryChange(value);
-      return { ...prev, salaryRange: value };
-    });
+    setFilters((prev) => ({ ...prev, salaryRange: value }));
   };
+
+  // Notify parent whenever filters change
+  useEffect(() => {
+    if (changeEmploymentType) {
+      changeEmploymentType(filters.employmentTypes);
+    }
+  }, [filters.employmentTypes, changeEmploymentType]);
+
+  useEffect(() => {
+    if (changeSalaryRange) {
+      changeSalaryRange(filters.salaryRange);
+    }
+  }, [filters.salaryRange, changeSalaryRange]);
 
   return (
     <div className="flex flex-col w-full max-w-xs p-4 bg-[#121212] rounded-lg space-y-6">
