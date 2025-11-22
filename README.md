@@ -1,4 +1,4 @@
-obby App
+Jobby App
 
 A responsive job portal web application built with React.js and Vite to help users browse and apply for jobs efficiently.
 
